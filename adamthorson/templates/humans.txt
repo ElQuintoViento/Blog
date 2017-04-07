@@ -2,14 +2,12 @@
 # The humans responsible & technology colophon
 
 # TEAM
-
-    <name> -- <role> -- <twitter>
+    Adam Thorson -- Developer -- <twitter>
 
 # THANKS
-
-    <name>
+    Thanks to all my readers
 
 # TECHNOLOGY COLOPHON
-
+    Django
     HTML5, CSS3
     jQuery, Modernizr
