@@ -2,10 +2,12 @@
 from selenium import webdriver
 from django.core.urlresolvers import reverse
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+# from django.utils.translation import activate
 
 
 class HomeNewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
+        # activate('en')
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
 
