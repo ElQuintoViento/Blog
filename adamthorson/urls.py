@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from django.conf.urls.i18n import i18n_patterns
+# from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.views.generic.base import RedirectView
+#
 from .views import home, home_files
 
 
@@ -25,7 +27,10 @@ urlpatterns = [
     url(
         r'^(?P<filename>(robots.txt)|(humans.txt))$',
         home_files,
-        name='home-files')
+        name='home-files'),
+    # Apps
+    # url(r'^blog$', RedirectView.as_view(url='/examples/')),
+    url(r'^blog/', include('adamthorson.apps.blog.urls')),
 ]
 
 '''
