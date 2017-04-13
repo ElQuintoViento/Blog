@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # 3rd Party
     'django_filters',
+    'rest_framework',
     # Custom apps
     'adamthorson.apps.blog',
     'adamthorson.apps.core',
@@ -132,3 +133,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+# 3rd-party configurations
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.MultiPartParser',
+    )
+}
