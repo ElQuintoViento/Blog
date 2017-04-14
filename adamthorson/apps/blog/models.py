@@ -25,13 +25,12 @@ class Series(Describable, Titleable, models.Model):
         return self.title
 
 
-class Post(Describable, Ownable, Permalinkable, Publishable, Timestampable,
-           Titleable, models.Model):
+class Post(Contentable, Describable, Ownable, Permalinkable, Publishable,
+           Timestampable, Titleable, models.Model):
     # Relations
     series = models.ForeignKey(Series, blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name='posts', blank=True)
     # Attributes - Mandatory
-    content = models.TextField(default='<p>None</p>')
     # Attributes - Optional
     # Object Manager
     objects = BlogManagers.PostManager()
