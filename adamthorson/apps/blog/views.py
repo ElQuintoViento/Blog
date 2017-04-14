@@ -28,7 +28,7 @@ class ViewPostRedirectView(RedirectView):
 class SearchPostsView(View):
     def get(self, request, *args, **kwargs):
         data = Post.objects.all()
-        serialized_data = PostSerializer(data, many=True).data
+        serialized_data = SimplePostSerializer(data, many=True).data
         return JSONResponse(serialized_data)
 
 
