@@ -2,6 +2,12 @@
 from rest_framework import serializers
 
 
+# Used to only return name value sans key
+class FlatNameField(serializers.RelatedField):
+    def to_representation(self, value):
+        return value.name
+
+
 class BaseSerializable(serializers.ModelSerializer):
     # Initialize normally, but exclude/include fields dynamically
     def __init__(self, *args, **kwargs):
@@ -24,6 +30,36 @@ class BaseSerializable(serializers.ModelSerializer):
 
             for field_name in excluded_fields:
                 self.fields.pop(field_name)
+
+    class Meta:
+        abstract = True
+
+
+class NameSerializable(BaseSerializable):
+    name = serializers.CharField()
+
+    class Meta:
+        abstract = True
+
+
+class PublishSerializable(BaseSerializable):
+    publish_date = serializers.DateTimeField()
+
+    class Meta:
+        abstract = True
+
+
+class TimestampSerializable(BaseSerializable):
+    created_date = serializers.DateTimeField()
+    modified_date = serializers.DateTimeField()
+
+    class Meta:
+        abstract = True
+
+
+
+class TitleSerializable(BaseSerializable):
+    title = serializers.CharField()
 
     class Meta:
         abstract = True
