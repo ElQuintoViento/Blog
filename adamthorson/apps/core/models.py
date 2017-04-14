@@ -23,10 +23,9 @@ class UserProfile(Ownable, models.Model):
         return self.owner
 
 
-class Tag(models.Model):
+class Tag(Nameable, models.Model):
     # Relations
     # Attributes - Mandatory
-    name = models.CharField(blank=False, max_length=28)
     # Attributes - Optional
     # Object Manager
     objects = CoreManagers.TagManager()
