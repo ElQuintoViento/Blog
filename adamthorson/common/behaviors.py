@@ -3,6 +3,13 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+class Contentable(models.Model):
+    content = models.TextField(default='<p>None</p>')
+
+    class Meta:
+        abstract = True
+
+
 class Ownable(models.Model):
     owner = models.ForeignKey(User)
 
@@ -19,6 +26,13 @@ class Describable(models.Model):
 
 class Permalinkable(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
+
+    class Meta:
+        abstract = True
+
+
+class Nameable(models.Model):
+    name = models.CharField(blank=False, max_length=28)
 
     class Meta:
         abstract = True
