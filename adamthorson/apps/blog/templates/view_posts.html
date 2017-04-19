@@ -1,9 +1,22 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="container">
-<h1>Search</h1>
+<div id="wrapper_div_input_search">
+    <input type="text" id="search_input" class="input_search" placeholder="Search posts...">
+</div>
 
-<p>Search here</p>
+<div class="container">
+    <div class="container">
+        <table id="search_table" class="table_search">
+            <tbody>
+                <tr><td><p>Dumby row</p></td></tr>
+            </tbody>
+        </table>
+    </div>
 </div> <!-- end container -->
+{% endblock %}
+
+{% block footer_javascript %}
+<script src="{% static 'js/view_posts.js' %}"></script>
 {% endblock %}
