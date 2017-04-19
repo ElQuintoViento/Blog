@@ -1,3 +1,133 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.navbar_custom, .footer {
+    background-color: #fcfcfc;
+    color: #3c3c3c;
+    font-color: #3c3c3c;
+}
+
+.fill_page {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto 0px;
+    background-color: #ececec;
+}
+
+.footer {
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+}
+
+/* Inputs */
+/* Search */
+#wrapper_div_input_search {
+    background-color: transparent;
+    height: 80px;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+
+.input_search {
+    background-image: url('/static/img/search-icon.png');
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 95%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px soild #ddd;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.input_search::-webkit-input-placeholder {
+    color: #9c9c9c;
+}
+.input_search::-moz-placeholder {
+    color: #9c9c9c;
+} /* firefox 19+ */
+.input_search:-moz-placeholder {
+    color: #9c9c9c;
+} /* firefox 18 */
+.input_search:-ms-input-placeholder {
+    color: #9c9c9c;
+} /* ie */
+
+/* Tables */
+/* Search */
+.table_search {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table_search tr {}
+
+.table_search tr:first-child {}
+
+.table_search tr:last-child {}
+
+/*.table_search tr:not(:first-child) {}*/
+
+.td_div_search_post {
+    margin: auto;
+    height: 200px;
+    width: 95%;
+    background-color: #fcfcfc;
+    opacity: 80%;
+    margin: 5px 0px 20px 0px;
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px #dcdcdc;
+}
+
+.td_div_search_post .left,
+.td_div_search_post .right {
+    display: inline-block;
+    height: 200px;
+}
+.td_div_search_post .left {
+    float: left;
+    width: 200px;
+}
+.td_div_search_post .right {
+    overflow: auto;
+}
+.td_div_search_post .left .img {
+    height: 100%;
+    width: 100%;
+}
+.td_div_search_post .right .title {
+    height: 25%;
+    padding: 20px 20px 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+@media screen and (max-width: 640px){
+    .td_div_search_post {
+        height: 100px;
+    }
+    .td_div_search_post .left,
+    .td_div_search_post .right{
+        height: 100px;
+    }
+    .td_div_search_post .left {
+        width: 100px;
+    }
+    .td_div_search_post .right .title {
+        padding: 10px 10px 5px 10px;
+        font-size: 16px;
+    }
+}
+
+/* Old */
 .jumbotron h1 {
     color: rgba(200, 50, 255, 1);
 }
