@@ -26,7 +26,7 @@ class ViewPostRedirectView(RedirectView):
 #     serializer = JSONSerializer()
 #     return serializer.serialize(Post.objects.all())
 class SearchPostsView(View):
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         data = Post.objects.all()
         serialized_data = SimplePostSerializer(data, many=True).data
         return JSONResponse(serialized_data)
