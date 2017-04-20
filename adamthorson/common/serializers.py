@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 from rest_framework import serializers
+
+
+EPOCH = datetime.utcfromtimestamp(0)
 
 
 # Used to only return name value sans key
@@ -43,15 +48,16 @@ class NameSerializable(BaseSerializable):
 
 
 class PublishSerializable(BaseSerializable):
-    publish_date = serializers.DateTimeField()
+    publish_date = serializers.IntegerField(source='publish_date_epoch')
 
     class Meta:
         abstract = True
 
 
 class TimestampSerializable(BaseSerializable):
-    created_date = serializers.DateTimeField()
-    modified_date = serializers.DateTimeField()
+    # created_date = serializers.DateTimeField()
+    created_date = serializers.IntegerField(source='created_date_epoch')
+    modified_date = serializers.IntegerField(source='modified_date_epoch')
 
     class Meta:
         abstract = True
