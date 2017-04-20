@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime, timezone
+#
 from django.contrib.auth.models import User
 from django.db import models
-
+#
+from adamthorson.common.helpers import datetime_to_epoch_ms
 
 class Contentable(models.Model):
     content = models.TextField(default='<p>None</p>')
@@ -41,6 +44,10 @@ class Nameable(models.Model):
 class Publishable(models.Model):
     publish_date = models.DateTimeField(null=True)
 
+    @property
+    def publish_date_epoch(self):
+        return datetime_to_epoch_ms(self.publish_date)
+
     class Meta:
         abstract = True
 
@@ -48,6 +55,14 @@ class Publishable(models.Model):
 class Timestampable(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+
+    @property
+    def created_date_epoch(self):
+        return datetime_to_epoch_ms(self.created_date)
+
+    @property
+    def modified_date_epoch(self):
+        return datetime_to_epoch_ms(self.modified_date)
 
     class Meta:
         abstract = True
