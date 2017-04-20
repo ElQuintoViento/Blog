@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block head_javascript %}
+<script src="{% static 'js/helpers.js' %}"></script>
+{% endblock %}
+
 {% block content %}
+{% csrf_token %}
+
 <div id="wrapper_div_input_search">
     <input type="text" id="search_input" class="input_search" placeholder="Search posts...">
 </div>
@@ -9,9 +15,7 @@
 <div class="container">
     <div class="container">
         <table id="search_table" class="table_search">
-            <tbody>
-                <tr><td><p>Dumby row</p></td></tr>
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
 </div> <!-- end container -->
