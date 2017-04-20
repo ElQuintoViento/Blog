@@ -16,8 +16,8 @@ class SimplePostSerializer(PublishSerializable, SimpleTagSerializable,
 
     class Meta:
         model = Post
-        fields = ['created_date', 'modified_date', 'publish_date',
-                  'series', 'title', 'tags']
+        fields = ['created_date', 'modified_date', 'publish_date', 'series',
+                  'slug', 'title', 'tags']
         depth = 2
 
 
@@ -26,5 +26,5 @@ class PostSerializer(PublishSerializable, SimpleTagSerializable,
     class Meta:
         model = Post
         fields = ['content', 'created_date', 'modified_date', 'publish_date',
-                  'series', 'title', 'tags']
+                  'series', 'slug', 'title', 'tags']
         depth = 2
