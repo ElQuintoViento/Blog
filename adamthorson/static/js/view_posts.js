@@ -4,9 +4,23 @@ $(document).ready(function(){
     var blog_posts = [];
 
 
+    var getSearchText = function(){
+        var text = $('#search_input').val();
+
+        if(!checkAlphanumeric(text)){
+            if(isErrorVisible("ane")){
+                showError(
+                    "Use alphanumeric characters and spaces",
+                    "ane",
+                    1750);
+            }
+        }
+    };
+
+
     var clearTable = function(table){
         $('#' + table + ' tr').remove();
-    }
+    };
 
 
     var clearDataAndTable = function(data_array, table){
@@ -14,7 +28,7 @@ $(document).ready(function(){
             data_array.pop();
         }
         clearTable(table);
-    }
+    };
 
 
     var createTableRow = function(post){
@@ -66,7 +80,7 @@ $(document).ready(function(){
         var row = $('<tr/>').append(cell);
 
         return row;
-    }
+    };
 
 
     var storeTableData = function(data_array, result){
@@ -79,7 +93,7 @@ $(document).ready(function(){
                 'html': row
             });
         }
-    }
+    };
 
 
     var pushDataToTable = function(data_array, table){
@@ -87,16 +101,19 @@ $(document).ready(function(){
             $('#' + table + ' tbody').append(
                 data_array[i]['html']);
         }
-    }
+    };
 
 
     var loadTable = function(data_array, table){
+        var search_text = getSearchText();
+
         $.ajax({
             beforeSend: function (xhr, settings) {
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
             },
             method: 'POST',
             url: 'search/',
+            data: {},
             success: function(result){
                 console.log(JSON.stringify(result));
                 clearDataAndTable(data_array, table);
@@ -104,7 +121,7 @@ $(document).ready(function(){
                 pushDataToTable(data_array, table);
             }
         });
-    }
+    };
 
 
     /*var sort = function(data_array, table){
