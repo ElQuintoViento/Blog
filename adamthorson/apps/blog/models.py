@@ -2,6 +2,7 @@
 from django.db import models
 #
 from . import managers as BlogManagers
+from adamthorson.apps.blog.querysets import *
 from adamthorson.apps.core.models import *
 from adamthorson.common.behaviors import *
 
@@ -33,7 +34,8 @@ class Post(Contentable, Describable, Ownable, Permalinkable, Publishable,
     # Attributes - Mandatory
     # Attributes - Optional
     # Object Manager
-    objects = BlogManagers.PostManager()
+    # objects = BlogManagers.PostManager()
+    objects = PostQuerySet.as_manager()
     # Custom Properties
     # Methods
     # Meta and String
