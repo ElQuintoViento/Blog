@@ -1,4 +1,4 @@
-var showError = function(message, tag, ms){
+var showPrompt = function(message, tag, ms){
     var $body = $(document.body);
     var message_p = $('<p/>', {'text': message});
     var error_div = $('<div/>', {
@@ -19,7 +19,7 @@ var showError = function(message, tag, ms){
 };
 
 
-var isErrorVisible = function(tag){
+var isPromptVisible = function(tag){
     return ($('.error_window, .' + tag).length < 1);
 }
 
