@@ -8,13 +8,19 @@ $(document).ready(function(){
         var text = $('#search_input').val();
 
         if(!checkAlphanumeric(text)){
-            if(isErrorVisible("ane")){
-                showError(
+            if(isPromptVisible("ane")){
+                showPrompt(
                     "Use alphanumeric characters and spaces",
                     "ane",
                     1750);
             }
+
+            $('#search_input').val('');
+
+            return false;
         }
+
+        return text;
     };
 
 
@@ -107,13 +113,18 @@ $(document).ready(function(){
     var loadTable = function(data_array, table){
         var search_text = getSearchText();
 
+        if(!search_text){
+            return;
+        }
+
         $.ajax({
             beforeSend: function (xhr, settings) {
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
             },
             method: 'POST',
             url: 'search/',
-            data: {},
+            'dataType': 'json',
+            data: {'text': search_text},
             success: function(result){
                 console.log(JSON.stringify(result));
                 clearDataAndTable(data_array, table);
