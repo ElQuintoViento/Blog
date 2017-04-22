@@ -8,6 +8,7 @@ from django.views.generic.base import RedirectView
 #
 from adamthorson.apps.blog.models import Post
 from adamthorson.apps.blog.serializers import *
+from adamthorson.apps.blog.helpers import *
 from adamthorson.common.helpers import JSONResponse
 
 
@@ -27,7 +28,7 @@ class ViewPostRedirectView(RedirectView):
 #     return serializer.serialize(Post.objects.all())
 class SearchPostsView(View):
     def post(self, request, *args, **kwargs):
-        data = Post.objects.all()
+        data = Post.objects.search_filter(request.POST['text'])
         serialized_data = SimplePostSerializer(data, many=True).data
         return JSONResponse(serialized_data)
 
