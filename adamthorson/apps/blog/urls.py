@@ -9,6 +9,8 @@ urlpatterns = [
     # Search posts
     # url(r'^$', view_posts),
     url(r'^$', ViewPostsView.as_view()),
+    #
+    url(r'^get/autocomplete_text[/]*$', AutoCompleteSearchPostsView.as_view()),
     # url(r'^search/$', search_posts),
     url(r'^search/$', SearchPostsView.as_view()),
     # View posts
