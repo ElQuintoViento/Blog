@@ -20,6 +20,16 @@ class ViewPostRedirectView(RedirectView):
         return slug
 
 
+class AutoCompleteSearchPostsView(View):
+    def post(self, request, *args, **kwargs):
+        title_data = (Post.objects.order_by('title')
+                          .values_list('title', flat=True))
+        tags_data = (Post.objects.order_by('tags__name')
+                         .values_list('tags__name', flat=True))
+        obj = {'titles': title_data, 'tags': tags_data}
+        return JSONResponse(obj)
+
+
 # def search_posts(request):
 #     # json = Post.objects.values()
 #     # return HttpResponse(json, content_type="application/json")
