@@ -126,10 +126,41 @@ $(document).ready(function(){
             'dataType': 'json',
             data: {'text': search_text},
             success: function(result){
-                console.log(JSON.stringify(result));
+                // console.log(JSON.stringify(result));
                 clearDataAndTable(data_array, table);
                 storeTableData(data_array, result);
                 pushDataToTable(data_array, table);
+            }
+        });
+    };
+
+
+    var storeAutoCompleteText = function(result, search_input){
+        var titles = result['titles'];
+        var tags = result['tags'];
+        var array = [];
+
+        for(var i=0; i < titles.length; ++i){
+            array.push(titles[i]);
+        }
+        for(var i=0; i < tags.length; ++i){
+            array.push(tags[i]);
+        }
+
+        $('#' + search_input).autocomplete({source: array});
+    };
+
+
+    var loadAutoCompleteText = function(search_input){
+        $.ajax({
+            beforeSend: function(xhr, settings){
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            },
+            method: 'POST',
+            url: 'get/autocomplete_text',
+            'dataType': 'json',
+            success: function(result){
+                storeAutoCompleteText(result, search_input);
             }
         });
     };
@@ -161,4 +192,7 @@ $(document).ready(function(){
                 break;*/
         }
     });
+
+
+    loadAutoCompleteText('search_input');
 });
