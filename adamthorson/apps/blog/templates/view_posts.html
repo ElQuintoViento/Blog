@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/jquery-ui-1.12.1.min.css' %}">
+{% endblock %}
+
 {% block head_javascript %}
 <script src="{% static 'js/helpers.js' %}"></script>
 {% endblock %}
+
+{% block blogBlock %}active{% endblock %}
 
 {% block content %}
 {% csrf_token %}
@@ -23,4 +29,5 @@
 
 {% block footer_javascript %}
 <script src="{% static 'js/view_posts.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-ui-1.12.1.min.js' %}"></script>
 {% endblock %}
