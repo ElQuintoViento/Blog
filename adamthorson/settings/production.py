@@ -10,5 +10,16 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': get_environment_variable('DATABASE_NAME'),
+        'USER': get_environment_variable('DATABASE_USER'),
+        'PASSWORD': get_environment_variable('DATABASE_PASSWORD'),
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = ()
