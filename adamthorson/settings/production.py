@@ -8,6 +8,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '35.185.232.212',
 ]
 
 DATABASES = {
