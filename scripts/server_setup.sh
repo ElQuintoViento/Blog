@@ -1,4 +1,5 @@
 #!/bin/sh
+# File and dir paths
 PROJ_DIR=/srv/django/adamthorson_prod
 UWSGI_INI=${PROJ_DIR}/uwsgi.ini
 UWSGI_NGINX_BASE=/var/run/nginx
