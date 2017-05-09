@@ -2,7 +2,7 @@
 from .base import *
 
 
-DATA_DIR = os.path.dirname(re.sub(r'(?<=/)[^/]+/*$', 'data/', BASE_DIR))
+DATA_DIR = re.sub(r'(?<=/)[^/]+/+[^/]+/*$', 'data/', BASE_DIR)
 LOG_DIR = os.path.join(DATA_DIR, 'log')
 
 # SECURITY WARNING: don't run with debug turned on in production!
