@@ -138,7 +138,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-# Python configurations
+# Logging configurations
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
