@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import logging
+#
 from .base import *
 
 
@@ -24,6 +26,12 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+logger = logging.getLogger("blabla")
+try:
+    print(get_environment_variable('DATABASE_PASSWORD'))
+except KeyError:
+    logger.exception("Unable to print var; an error occurred")
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = ()
