@@ -20,8 +20,8 @@ DATABASES = {
         'NAME': get_environment_variable('DATABASE_NAME'),
         'USER': get_environment_variable('DATABASE_USER'),
         'PASSWORD': get_environment_variable('DATABASE_PASSWORD'),
-        'HOST': '',
-        'PORT': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
