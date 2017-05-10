@@ -27,12 +27,6 @@ DATABASES = {
     }
 }
 
-logger = logging.getLogger("blabla")
-try:
-    print(get_environment_variable('DATABASE_PASSWORD'))
-except KeyError:
-    logger.exception("Unable to print var; an error occurred")
-
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = ()
 
@@ -77,3 +71,9 @@ LOGGING = {
         }
     }
 }
+
+logger = logging.getLogger("file")
+try:
+    logger.debug(get_environment_variable('DATABASE_PASSWORD'))
+except KeyError:
+    logger.exception("Unable to print var; an error occurred")
