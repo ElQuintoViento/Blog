@@ -13,6 +13,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '35.185.232.212',
     'www.adamthorson.com',
+    'adamthorson.com',
 ]
 
 DATABASES = {
