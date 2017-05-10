@@ -110,7 +110,7 @@ $(document).ready(function(){
     };
 
 
-    var loadTable = function(data_array, table){
+    var loadTable = function(data_array, table, search_input){
         var search_text = getSearchText();
 
         if(!search_text){
@@ -130,6 +130,8 @@ $(document).ready(function(){
                 clearDataAndTable(data_array, table);
                 storeTableData(data_array, result);
                 pushDataToTable(data_array, table);
+                // Hide mobile keyboard
+                $('#' + search_input).blur();
             }
         });
     };
@@ -185,7 +187,7 @@ $(document).ready(function(){
     $('#search_input').keydown(function(event){
         switch(event.which){
             case 13:
-                loadTable(blog_posts, 'search_table')
+                loadTable(blog_posts, 'search_table', 'search_input')
                 break;
             /*case 90:
                 sort(blog_posts, 'search_table');
