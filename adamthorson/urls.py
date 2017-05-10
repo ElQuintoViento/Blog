@@ -30,7 +30,8 @@ urlpatterns = [
         name='home-files'),
     # Apps
     # url(r'^blog$', RedirectView.as_view(url='/examples/')),
-    url(r'^blog/', include('adamthorson.apps.blog.urls')),
+    # now within SUBDOMAIN_URLCONFS (base.py)
+    # url(r'^blog/', include('adamthorson.apps.blog.urls')),
 ]
 
 '''
