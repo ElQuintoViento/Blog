@@ -12,8 +12,9 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '35.185.232.212',
-    'www.adamthorson.com',
     'adamthorson.com',
+    'www.adamthorson.com',
+    'blog.adamthorson.com',
 ]
 
 DATABASES = {
