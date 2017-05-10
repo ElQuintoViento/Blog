@@ -41,6 +41,7 @@ SECRET_KEY = get_environment_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+PRODUCTION = False
 
 ALLOWED_HOSTS = []
 
@@ -51,6 +52,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    # needed for subdomains
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -62,9 +65,13 @@ INSTALLED_APPS = (
     'adamthorson.apps.core',
 )
 
+SITE_ID = 1
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    # django-subdomains
+    'subdomains.middleware.SubdomainURLRoutingMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -74,7 +81,16 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+# SITE_ID = 1
+
 ROOT_URLCONF = 'adamthorson.urls'
+
+# A dictionary of urlconf module paths, keyed by their subdomain.
+SUBDOMAIN_URLCONFS = {
+    None: 'adamthorson.urls',  # no subdomain, e.g. ``example.com``
+    'www': 'adamthorson.urls',
+    'blog': 'adamthorson.apps.blog.urls',
+}
 
 TEMPLATES = [
     {
@@ -88,6 +104,8 @@ TEMPLATES = [
                 'django.template.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Custom
+                'adamthorson.context_processors.site',
             ],
         },
     },
