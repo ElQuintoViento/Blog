@@ -7,6 +7,7 @@ LOG_DIR = os.path.join(DATA_DIR, 'log')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+PRODUCTION = True
 
 ALLOWED_HOSTS = [
     'localhost',
