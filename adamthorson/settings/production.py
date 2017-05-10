@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import logging
-#
 from .base import *
 
 
@@ -71,9 +69,3 @@ LOGGING = {
         }
     }
 }
-
-logger = logging.getLogger("file")
-try:
-    logger.debug(get_environment_variable('DATABASE_PASSWORD'))
-except KeyError:
-    logger.exception("Unable to print var; an error occurred")
