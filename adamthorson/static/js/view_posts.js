@@ -42,7 +42,7 @@ $(document).ready(function(){
         var slug = post['slug'];
         var title = post['title'];
         var img_url = "/static/img/blogging.jpg";
-        var post_url = "/blog/" + slug;
+        var post_url = "/" + slug;
         // UI setup
         // Left div
         // Post image & link
