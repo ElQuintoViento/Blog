@@ -8,3 +8,10 @@ def site(request):
     if not settings.PRODUCTION:
         _site = "{}:8000".format(_site)
     return {'site': _site}
+
+
+def site_prefix(request):
+    _site_prefix = "http://"
+    if settings.PRODUCTION:
+        _site_prefix = "https://"
+    return {'site_prefix': _site_prefix}
