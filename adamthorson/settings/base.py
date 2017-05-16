@@ -106,6 +106,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # Custom
                 'adamthorson.context_processors.site',
+                'adamthorson.context_processors.site_prefix',
             ],
         },
     },
