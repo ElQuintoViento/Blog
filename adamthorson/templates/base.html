@@ -44,8 +44,8 @@
         <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-right" role="form">
                 <ul class="nav navbar-nav">
-                  <li class="{% block homeBlock %}{% endblock %}"><a href="http://{{ site }}">About</a></li>
-                  <li class="{% block blogBlock %}{% endblock %}"><a href="http://blog.{{ site }}">Blog</a></li>
+                  <li class="{% block homeBlock %}{% endblock %}"><a href="{{ site_prefix }}{{ site }}">About</a></li>
+                  <li class="{% block blogBlock %}{% endblock %}"><a href="{{ site_prefix }}blog.{{ site }}">Blog</a></li>
                 </ul>
               </div>
         </div><!--/.navbar-collapse -->
