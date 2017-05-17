@@ -1,13 +1,26 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block head_title %}Adam Thorson {% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+{% endblock %}
 
 {% block homeBlock %}active{% endblock %}
 
 {% block content %}
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="container">
+      <div class="left">
+        <img src="{% static 'img/profile_pic.png' %}" />
+      </div>
+      <div class="right">
+        <div class="title_medium">Bienvenido, dudes</div>
+        <br>
+        <div class="text_large">
+          Intended for whatever my heart desires.  Primarly will focus on blogging about topics such as anxiety &amp; depression, creativity, coding tutorials, etcetera.
+        </div>
       </div>
     </div>
 
