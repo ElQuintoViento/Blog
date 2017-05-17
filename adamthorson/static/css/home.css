@@ -1,0 +1,23 @@
+.jumbotron {
+    background-color: white;
+    padding: 20px 20px 0 20px;
+    /* contains both floating elements */
+    clear: both;
+    overflow: auto;
+}
+
+.jumbotron > .left, .jumbotron > .right {
+    width: 50%;
+}
+
+.jumbotron > .left {
+    float: left;
+}
+
+.jumbotron > .right {
+    float: right;
+}
+
+.jumbotron > .left > img, .jumbotron > .right > div {
+    width: 100%;
+}
