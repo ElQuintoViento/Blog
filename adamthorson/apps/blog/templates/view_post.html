@@ -1,10 +1,20 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block head_title %}{{ post.title }}{% endblock %}
 
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}"/>
+{% endblock %}
+
 {% block content %}
-    <div class="container">
-        <h1>{{ post.title }}</h1>
-        {{ post.content | safe | escape }}
-    </div> <!-- /container --> 
+    <div class="my_container trnsprnt_bckgrnd" style="margin: 20px auto 0 auto;">
+        <div class="div_post">
+            <div class="div_post_top">
+                <img class="img_post" src="/static/img/blogging.jpg" />
+            </div>
+            <div class="title_xlarge">{{ post.title }}</div>
+            {{ post.content | safe | escape }}
+        </div> <!-- /container --> 
+    </div>
 {% endblock %}
