@@ -6,8 +6,12 @@
     overflow: auto;
 }
 
-.jumbotron > .left, .jumbotron > .right {
-    width: 50%;
+.jumbotron > .left{
+    width: 66%;
+}
+
+.jumbotron > .right {
+    width: 34%;
 }
 
 .jumbotron > .left {
