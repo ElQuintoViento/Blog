@@ -11,7 +11,7 @@
     <div class="my_container trnsprnt_bckgrnd" style="margin: 20px auto 0 auto;">
         <div class="div_post">
             <div class="div_post_top">
-                <img class="img_post" src="/static/img/blogging.jpg" />
+                <img class="img_post" src="{% static 'img/blogging.jpg' %}" />
             </div>
             <div class="title_xlarge">{{ post.title }}</div>
             {{ post.content | safe | escape }}
