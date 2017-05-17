@@ -58,12 +58,13 @@ $(document).ready(function(){
         // Right div
         // Attributes
         var title_div = $('<div/>', {
-            'class': 'title',
+            'class': 'title title_medium',
             'text': title
         });
-        var tags_div = $('<div/>', {'class': 'tags', 'text': 'tags'});
+        var tags_p = $('<p/>', {'class': 'tags text_medium', 'text': 'tags'});
         var date_p = $('<p/>', {
-            'text': formatDate(post['created_date'])
+            'text': formatDate(post['created_date']),
+            'class': 'text_medium'
         });
         var bottom_div = $('<div/>', {'class': 'bottom'});
         bottom_div.append(date_p);
@@ -71,10 +72,13 @@ $(document).ready(function(){
         var a_title = $('<a/>', {'href': post_url});
         a_title.append(title_div);
     
+        
+        var right_container_div = $('<div/>', {'class': 'my_container'});
+        right_container_div.append(a_title);
+        right_container_div.append(tags_p);
+        right_container_div.append(bottom_div);
         var right_div = $('<div/>', {'class': 'right'});
-        right_div.append(a_title);
-        right_div.append(tags_div);
-        right_div.append(bottom_div);
+        right_div.append(right_container_div);
 
         // Combine left and right divs
         var post_div = $('<div/>', {'class': 'td_div_search_post'});
